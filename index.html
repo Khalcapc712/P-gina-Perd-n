@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Perdón</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FFD1BA; /* Fondo salmón suave */
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            margin: 10px auto;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesButton {
+            background-color: #4caf50;
+            color: white;
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me perdonas miamorcitolindo?</h1>
+        <img src="https://i.imgur.com/6VcJTzI.jpeg" alt="Gatito triste">
+        <div class="buttons" id="buttonContainer">
+            <button id="yesButton" onclick="redirectToThankYou()">Sí</button>
+            <button id="noButton" onclick="moveNoButton(); increaseYesButton();">No</button>
+        </div>
+    </div>
+
+    <!-- Música de la primera página -->
+    <audio id="music" preload="auto" loop>
+        <source src="https://github.com/Khalcapc712/Music/raw/refs/heads/main/Vocaroo%2019i1cak1EKGW.mp3" type="audio/mpeg">
+        Tu navegador no soporta reproducción de audio.
+    </audio>
+
+    <script>
+        // Forzar la reproducción de música después de una interacción
+        function startMusicAfterInteraction() {
+            const music = document.getElementById("music");
+            music.play();
+        }
+        document.body.addEventListener("click", startMusicAfterInteraction, { once: true });
+
+        function moveNoButton() {
+            const noButton = document.getElementById("noButton");
+            const container = document.getElementById("buttonContainer");
+            const containerRect = container.getBoundingClientRect();
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const minX = 0;
+            const maxX = containerRect.width - buttonWidth;
+            const minY = 0;
+            const maxY = containerRect.height - buttonHeight;
+
+            const randomX = Math.random() * (maxX - minX) + minX;
+            const randomY = Math.random() * (maxY - minY) + minY;
+
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+        }
+
+        function increaseYesButton() {
+            const yesButton = document.getElementById("yesButton");
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize * 1.1) + "px";
+        }
+
+        function redirectToThankYou() {
+            window.location.href = "thankyou.html";
+        }
+    </script>
+</body>
+</html>
