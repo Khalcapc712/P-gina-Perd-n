@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por Perdonarme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FFD1BA; /* Fondo salmón suave */
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            margin: 10px auto;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.imgur.com/fNQYve1.jpeg" alt="Gatito feliz">
+        <p>Muchas gracias por perdonarme, mi Fabis, te amo mucho mucho mucho mucho mucho mucho mucho mucho muchiiiiiiiiiiiiiiiiiiiiismooooooooooooo, te comería a besos, muakmuakmuakmuakmuak 🫶🙂‍↕️</p>
+    </div>
+
+    <!-- Música de la segunda página -->
+    <audio id="music" preload="auto" loop>
+        <source src="https://github.com/Khalcapc712/Music/raw/refs/heads/main/Vocaroo%201BrBDVqX6dFT.mp3" type="audio/mpeg">
+        Tu navegador no soporta reproducción de audio.
+    </audio>
+
+    <script>
+        // Forzar la reproducción de música después de una interacción
+        function startMusicAfterInteraction() {
+            const music = document.getElementById("music");
+            music.play();
+        }
+        document.body.addEventListener("click", startMusicAfterInteraction, { once: true });
+    </script>
+</body>
+</html>
